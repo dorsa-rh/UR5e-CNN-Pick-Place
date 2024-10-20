@@ -1,0 +1,57 @@
+#VRML_SIM R2023b utf8
+
+PROTO TexturedObjectMesh [
+  field SFString   name "DefaultObject"
+  field SFVec3f    translation 0 0 0
+  field SFRotation rotation 0 0 1 0
+  field SFVec3f    scale 1 1 1
+  field MFString   objUrl "path/to/your/model.obj"
+  field MFString   textureUrl "path/to/your/texture.jpg"
+  field MFString   boundingBoxObjUrl "path/to/your/bounding/box.obj"
+  field SFVec3f    meshOffsetTranslation 0 0 0
+  field SFRotation meshOffsetRotation 0 0 1 0
+  field SFVec3f    boundingBoxOffsetTranslation 0 0 0
+  field SFRotation boundingBoxOffsetRotation 0 0 1 0
+  field SFNode     physics Physics { mass 1.0 }
+] {
+  Solid {
+    name IS name  # Use the name parameter
+    translation IS translation
+    rotation IS rotation
+    children [
+      Transform {
+        scale IS scale
+        children [
+          Transform {
+            translation IS meshOffsetTranslation
+            rotation IS meshOffsetRotation
+            children [
+              Shape {
+                appearance Appearance {
+                  texture ImageTexture {
+                    url IS textureUrl
+                  }
+                }
+                geometry Mesh {
+                  url IS objUrl
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+    boundingObject Shape {
+      geometry Mesh {
+        url IS boundingBoxObjUrl
+      }
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0 0  # Color the bounding mesh to make it visible for debugging
+          transparency 0.5    # Make it semi-transparent for easier visualization
+        }
+      }
+    }
+    physics IS physics
+  }
+}

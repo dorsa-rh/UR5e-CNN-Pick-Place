@@ -1,0 +1,50 @@
+#VRML_SIM R2023b utf8
+
+# VacuumGripperUR5e.proto
+
+PROTO VacuumGripperUR5e [
+  field SFVec3f translation 0 0 0
+  field SFRotation rotation 0 1 0 0
+]
+{
+  Solid {
+    translation IS translation
+    rotation IS rotation
+    children [
+      Solid {
+        translation 0 0 0.05
+        rotation 0 1 0 0
+        children [
+          Shape {
+            appearance Appearance {
+              material Material {
+                diffuseColor 0.7 0.7 0.7
+              }
+            }
+            geometry Box {
+              size 0.1 0.1 0.1
+            }
+          }
+        ]
+      }
+
+      VacuumGripper {
+        translation 0 0 0.1
+        rotation 0 1 0 0
+        children [
+          Shape {
+            appearance Appearance {
+              material Material {
+                diffuseColor 0.5 0.5 0.5
+              }
+            }
+            geometry Cylinder {
+              radius 0.05
+              height 0.02
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

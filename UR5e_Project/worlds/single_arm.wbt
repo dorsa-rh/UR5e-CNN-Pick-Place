@@ -1,0 +1,157 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/universal_robots/protos/UR5e.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "../protos/Robotiq2f140Gripper.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/tables/protos/Table.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BlanketFabric.proto"
+
+WorldInfo {
+  basicTimeStep 8
+  dragForceScale 50
+  contactProperties [
+    ContactProperties {
+      material1 "slope"
+      coulombFriction [
+        0.5
+      ]
+    }
+    ContactProperties {
+      coulombFriction [
+        2
+      ]
+      bounce 0.1
+    }
+    ContactProperties {
+      material1 "ROBOTIQ gripper pad"
+      coulombFriction [
+        100
+      ]
+      bounceVelocity 0.001
+      softERP 0.1
+      softCFM 0.005
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.1571281286836075 0.05787390225698307 0.9858810083442812 2.170517777092339
+  position 1.8473971079867944 -2.337809495097593 1.9137056639130043
+}
+TexturedBackground {
+  texture "empty_office"
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 3 2
+}
+WoodenBox {
+  size 0.3 0.3 0.6
+}
+UR5e {
+  hidden position_0_0 9.743043398920573e-05
+  hidden rotation_1 0 0 0.9999999999999999 9.743043314673229e-05
+  hidden position_1_0 6.346004355785327e-05
+  hidden rotation_2 0 1 0 1.5708594600435568
+  hidden position_2_0 2.384413333796691e-05
+  hidden rotation_3 0 0.9999999999999999 0 2.384413022909449e-05
+  hidden position_3_0 4.976141837666522e-06
+  hidden rotation_4 0 1 0 1.5708009761418371
+  hidden position_4_0 -1.1399054445953553e-06
+  hidden rotation_5 0 0 -1 1.13991448276672e-06
+  hidden position_5_0 2.0864734079297128e-10
+  hidden translation_6 -1.821263744013404e-05 8.48637771166949e-10 0.09999999949365779
+  hidden rotation_6 -2.525775328252162e-05 -0.42100661974780507 0.9070575645958601 2.5217766524919963e-06
+  hidden position_8_0 0.13992524463849085
+  hidden position_8_1 -0.13935357351785882
+  hidden position_8_2 0.14805383352100632
+  hidden position_8_3 -0.1474563585082853
+  hidden rotation_9 1 0 0 2.155870755361509
+  hidden position_10_0 0.1461262083740587
+  hidden rotation_11 -1 0 0 0.5788737916259415
+  hidden rotation_13 1 0 0 2.1564424264821414
+  hidden position_13_0 0.14555453725342704
+  hidden rotation_14 -1.2810132383430968e-08 0.8790525449498054 0.47672489259243706 3.141592999051272
+  hidden position_15_0 0.1536688974442443
+  hidden translation_16 0 0.08175806129636475 -0.028219764323023235
+  hidden rotation_16 -1 0 0 0.571331102555756
+  hidden rotation_18 -1.275853066112322e-08 -0.8791949213281948 -0.4764622653586636 3.1415929990589104
+  hidden position_18_0 0.15307142243152397
+  translation 0 0 0.6
+  controller "<extern>"
+  toolSlot [
+    GPS {
+      rotation 1 0 0 -1.5708
+    }
+    Robotiq2f140Gripper {
+      rotation 1 0 0 -1.57
+    }
+  ]
+}
+Table {
+  translation 0.75 0 0
+  size 0.6 1 0.5
+  feetSize 0.05 0.05
+}
+Solid {
+  children [
+    Table {
+      translation -0.49 0 0
+      size 0.5 0.8 0.7
+      feetSize 0.05 0.05
+    }
+  ]
+}
+Solid {
+  translation -0.6 0.2 0.8
+  children [
+    Shape {
+      appearance BlanketFabric {
+      }
+      geometry Cylinder {
+        height 0.2
+        radius 0.035
+        subdivision 72
+      }
+    }
+  ]
+  name "box"
+  boundingObject Cylinder {
+    height 0.2
+    radius 0.035
+    subdivision 72
+  }
+  physics Physics {
+    mass 0.3
+    centerOfMass [
+      0 0 0
+    ]
+    inertiaMatrix [
+      1 1 1
+      0 0 0
+    ]
+    damping Damping {
+    }
+  }
+}
+Solid {
+  translation 0.65 -0.3 0.501
+  children [
+    Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url [
+            "img/H.png"
+          ]
+        }
+      }
+      geometry Plane {
+        size 0.1 0.1
+      }
+    }
+  ]
+  name "solid(1)"
+}

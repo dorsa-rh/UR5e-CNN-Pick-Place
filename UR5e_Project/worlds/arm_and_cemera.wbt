@@ -1,0 +1,142 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/universal_robots/protos/UR5e.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "../protos/Robotiq2f140Gripper.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/tables/protos/Table.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BlanketFabric.proto"
+
+WorldInfo {
+  basicTimeStep 8
+  dragForceScale 50
+  contactProperties [
+    ContactProperties {
+      material1 "slope"
+      coulombFriction [
+        0.5
+      ]
+    }
+    ContactProperties {
+      coulombFriction [
+        2
+      ]
+      bounce 0.1
+    }
+    ContactProperties {
+      material1 "ROBOTIQ gripper pad"
+      coulombFriction [
+        100
+      ]
+      bounceVelocity 0.001
+      softERP 0.1
+      softCFM 0.005
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.17386262702357655 0.05309917520559956 0.9833373096333453 2.314145781123266
+  position 1.853229711421715 -1.7486820787722515 1.6536845174465638
+}
+TexturedBackground {
+  texture "empty_office"
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 3 2
+}
+WoodenBox {
+  size 0.3 0.3 0.6
+}
+UR5e {
+  hidden rotation_6 -2.525775328252162e-05 -0.42100661974780507 0.9070575645958601 2.5217766524919963e-06
+  translation 0 0 0.6
+  controller "<extern>"
+  toolSlot [
+    Camera {
+      translation 0 0.15 0
+      rotation -0.5773502691896258 -0.5773502691896258 0.5773502691896258 2.0944
+      width 640
+      height 480
+    }
+    RangeFinder {
+      translation 0 0.15 0
+      rotation 0.5773502691896258 0.5773502691896258 -0.5773502691896258 -2.0944
+      width 640
+      height 480
+    }
+    GPS {
+      rotation 1 0 0 -1.5708
+    }
+    Robotiq2f140Gripper {
+      rotation 1 0 0 -1.57
+    }
+  ]
+}
+Table {
+  translation 0.75 0 0
+  size 0.6 1 0.5
+  feetSize 0.05 0.05
+}
+Solid {
+  children [
+    Table {
+      translation -0.49 0 0
+      size 0.5 0.8 0.7
+      feetSize 0.05 0.05
+    }
+  ]
+}
+Solid {
+  translation -0.6 0.2 0.8
+  children [
+    Shape {
+      appearance BlanketFabric {
+      }
+      geometry Cylinder {
+        height 0.2
+        radius 0.035
+        subdivision 72
+      }
+    }
+  ]
+  name "box"
+  boundingObject Cylinder {
+    height 0.2
+    radius 0.035
+    subdivision 72
+  }
+  physics Physics {
+    mass 0.3
+    centerOfMass [
+      0 0 0
+    ]
+    inertiaMatrix [
+      1 1 1
+      0 0 0
+    ]
+    damping Damping {
+    }
+  }
+}
+Solid {
+  translation 0.65 -0.3 0.501
+  children [
+    Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url [
+            "img/H.png"
+          ]
+        }
+      }
+      geometry Plane {
+        size 0.1 0.1
+      }
+    }
+  ]
+  name "solid(1)"
+}

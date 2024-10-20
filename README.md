@@ -29,7 +29,23 @@ This project simulates a **UR5e robot** in the **Webots** environment. The robot
 - **/simulation**: Webots simulation files.
 - **README.md**: Documentation of the project.
 
-## 5. Requirements
+## 5. Dataset
+- **Training Set**: 465 images.
+- **Validation Set**: 44 images.
+- **Image Size**: All images were resized to **640x640** pixels before being processed by the CNN.
+
+## 6. Example Images
+### a. Table Setup with Objects
+![Table with Objects](path_to_your_image/table_with_objects.png)
+*This image shows the UR5e robot positioned in front of a table with various objects.*
+
+### b. CNN Object Detection
+![Object Detection](path_to_your_image/object_detection.png)
+*This image demonstrates the CNN's detection capabilities, with detected objects highlighted by bounding boxes.*
+
+*To include these images in your repository, place them in an `images` folder and update the paths accordingly.*
+
+## 7. Requirements
 - **Webots R2024a**
 - **Python 3.8+**
 - Libraries:
@@ -40,7 +56,7 @@ This project simulates a **UR5e robot** in the **Webots** environment. The robot
   - `webots_ros`
 - **Roboflow** account for dataset management.
 
-## 6. Setup Instructions
+## 8. Setup Instructions
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/yourusername/ur5e-object-sorting.git

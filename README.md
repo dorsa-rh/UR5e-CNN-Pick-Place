@@ -37,10 +37,12 @@ This project simulates a **UR5e robot** in the **Webots** environment. The robot
 ## 6. Example Images
 ### a. Table Setup with Objects
 ![Table with Objects](image1.png)
+
 *This image shows the UR5e robot positioned in front of a table with various objects.*
 
 ### b. CNN Object Detection
 ![Object Detection](image2.png)
+
 *This image demonstrates the CNN's detection capabilities, with detected objects highlighted by bounding boxes.*
 
 *To include these images in your repository, place them in an `images` folder and update the paths accordingly.*

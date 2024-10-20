@@ -1,0 +1,55 @@
+#VRML_SIM R2023b utf8
+
+PROTO TexturedObject [
+  field SFVec3f    translation 0 0 0
+  field SFRotation rotation 0 0 1 0
+  field SFVec3f    scale 1 1 1
+  field MFString   objUrl "path/to/your/model.obj"
+  field MFString   textureUrl "path/to/your/texture.jpg"
+  field SFVec3f    boundingBoxSize 1 1 1
+  field SFVec3f    meshOffsetTranslation 0 0 0
+  field SFRotation meshOffsetRotation 0 0 1 0
+  field SFVec3f    boundingBoxOffsetTranslation 0 0 0
+  field SFRotation boundingBoxOffsetRotation 0 0 1 0
+  field SFNode     physics Physics { mass 1.0 }
+] {
+  Solid {
+    translation IS translation
+    rotation IS rotation
+    children [
+      Transform {
+        scale IS scale
+        children [
+          Transform {
+            translation IS meshOffsetTranslation
+            rotation IS meshOffsetRotation
+            children [
+              Shape {
+                appearance Appearance {
+                  texture ImageTexture {
+                    url IS textureUrl
+                  }
+                }
+                geometry Mesh {
+                  url IS objUrl
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+    boundingObject Transform {
+      translation IS boundingBoxOffsetTranslation
+      rotation IS boundingBoxOffsetRotation
+      children [
+        Shape {
+          geometry Box {
+            size IS boundingBoxSize
+          }
+        }
+      ]
+    }
+    physics IS physics
+  }
+}

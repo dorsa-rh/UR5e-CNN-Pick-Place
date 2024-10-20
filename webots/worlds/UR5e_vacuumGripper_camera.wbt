@@ -1,0 +1,225 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/universal_robots/protos/UR5e.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/tables/protos/Table.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/devices/robotiq/protos/RobotiqEPickGripper.proto"
+IMPORTABLE EXTERNPROTO "../protos/MyRubberDuck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/factory/containers/protos/PlasticCrate.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/VarnishedPine.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/kuka/youbot/protos/Youbot.proto"
+EXTERNPROTO "../protos/TexturedObject.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/factory/containers/protos/CardboardBox.proto"
+EXTERNPROTO "../protos/Can.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/computers/protos/ComputerMouse.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/kitchen/breakfast/protos/BiscuitBox.proto"
+
+WorldInfo {
+  basicTimeStep 8
+  dragForceScale 50
+  contactProperties [
+    ContactProperties {
+      material1 "slope"
+      coulombFriction [
+        0.5
+      ]
+    }
+    ContactProperties {
+      coulombFriction [
+        2
+      ]
+      bounce 0.1
+    }
+    ContactProperties {
+      material1 "ROBOTIQ gripper pad"
+      coulombFriction [
+        100
+      ]
+      bounceVelocity 0.001
+      softERP 0.1
+      softCFM 0.005
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.2935738109897527 0.5182566380236188 0.8032586598633148 1.2284346196160387
+  position -1.274910902918912 -1.435366540715547 1.9888990084410836
+}
+TexturedBackground {
+  texture "empty_office"
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 8 5
+}
+WoodenBox {
+  size 0.2 0.2 0.6
+}
+UR5e {
+  hidden position_0_0 0.23001495200602864
+  hidden rotation_1 0 0 1 0.230014952006029
+  hidden position_1_0 -1.9400300572423737
+  hidden rotation_2 0 -1 0 0.3692340572423721
+  hidden position_2_0 -0.9000155444745717
+  hidden rotation_3 0 -1 0 0.8999992326912932
+  hidden position_3_0 1.2700040849697323
+  hidden rotation_4 0 1 0 2.8408000849697315
+  hidden position_4_0 -1.599999008803066
+  hidden rotation_5 0 0 -1 1.599999008803066
+  hidden position_5_0 -1.330000000075786
+  hidden rotation_6 0 -1 0 1.330000000075786
+  hidden position_9_0 9.80643878844343e-09
+  hidden translation_14 0 0 0.1370000098064388
+  translation 0 0 0.6
+  controller "my_controller2"
+  supervisor TRUE
+  toolSlot [
+    RangeFinder {
+      translation 0 0.13 0
+      rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 2.09486
+      fieldOfView 1.25
+      width 640
+      height 480
+    }
+    Camera {
+      translation 0 0.13 0
+      rotation 0.5775028951944954 0.5770438952777949 0.5775038951943139 2.0948596938995747
+      fieldOfView 1.25
+      width 640
+      height 480
+    }
+    RobotiqEPickGripper {
+      rotation -3.3891510791584073e-09 0.7068252250641434 0.7073882252434113 3.14159
+    }
+    GPS {
+      translation 0 0.13 0
+      rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 2.09486
+    }
+  ]
+}
+Table {
+  translation 0.66 0 0
+  size 0.5 0.8 0.5
+  feetSize 0.05 0.05
+  trayAppearance VarnishedPine {
+    colorOverride 0.533333 0.368627 0.305882
+    textureTransform TextureTransform {
+      scale 10 10
+    }
+  }
+}
+Solid {
+  children [
+    Table {
+      translation -0.45 0 0
+      size 0.6 0.8 0.5
+      feetSize 0.04 0.04
+      trayAppearance VarnishedPine {
+        colorOverride 0.666667 0.431373 0.0196078
+        textureTransform TextureTransform {
+          scale 10 10
+        }
+      }
+    }
+  ]
+}
+Can {
+  hidden linearVelocity_0 -5.457976772378293e-18 -2.8224839254728774e-18 5.296782815079698e-15
+  hidden angularVelocity_0 1.0035488736335958e-16 -5.0181898306871894e-17 1.6739791717878216e-17
+  translation -0.2799997752729781 -0.19 0.5610656649999998
+  rotation -0.18899918136781227 0.05009817956003236 -0.9806984663223796 2.0984796544504564e-16
+  name "can(1)"
+}
+ComputerMouse {
+  hidden linearVelocity_0 -3.595195079833664e-18 7.380440618357368e-20 4.7606363541814e-15
+  hidden angularVelocity_0 9.202276447317227e-17 -4.0400750297558465e-16 -2.3828941166183418e-17
+  translation -0.35603399999999985 0.11591099999999996 0.499990190000101
+  rotation -1.3950510093200907e-05 -1.8366025515864763e-06 0.9999999999010052 0.2617969999222618
+}
+PlasticCrate {
+  translation 0.6 -0.2 0.5
+  size 0.25 0.3 0.1
+}
+PlasticCrate {
+  translation 0.0994232982866222 0.6245581293295346 0.15202165582251162
+  rotation -0.0003785816963540927 0.00031226964390854384 0.999999879581777 1.5683907785342648
+  name "plastic crate3"
+  size 0.27 0.3 0.1
+  color 0.160784 0.396078 0.901961
+  mass 0.5
+}
+PlasticCrate {
+  translation 0.6 0.2 0.5
+  name "plastic crate2"
+  size 0.25 0.3 0.1
+  color 0.352941 0.698039 0.121569
+}
+Youbot {
+  hidden position_0_0 -4.101685699343862e-09
+  hidden position_0_1 -4.100702252868314e-09
+  hidden position_0_2 -5.344530972685467e-09
+  hidden position_0_3 -5.343235591950126e-09
+  hidden position_1_0 -4.84743317457712e-07
+  hidden rotation_2 0 0 -1 4.85146659496419e-07
+  hidden position_2_0 1.5700013385017788
+  hidden rotation_3 0 -1 0 1.5700013385017788
+  hidden position_3_0 -2.6350017254102123
+  hidden rotation_4 0 1 0 2.6350017254102123
+  hidden position_4_0 1.7800004234106144
+  hidden position_5_0 4.5756647532407596e-08
+  hidden rotation_6 0 0 1 4.2146848510894035e-08
+  hidden position_6_0 5.3278116097254145e-11
+  hidden position_6_1 -5.94319930986929e-12
+  translation 0.09999654423777458 0.7601453859298709 0.10344388984936714
+  rotation -0.000374163076898366 0.00035366827427731995 0.9999998674603632 1.5708765011179913
+}
+TexturedObject {
+  translation -0.43146419874446645 0.2553203861387738 0.5059901899999998
+  rotation 0.774553874816006 0.44725065400036623 0.44725065400036645 1.8235300760770876
+  scale 0.015 0.015 0.015
+  objUrl [
+    "../protos/objects/nokia1/MobileNokiaC5.obj"
+  ]
+  textureUrl [
+    "../protos/objects/nokia1/Mobile.jpg"
+  ]
+  boundingBoxSize 0.05 0.012 0.12
+  meshOffsetTranslation 0 -0.3 0
+  physics Physics {
+    mass 0.1
+  }
+}
+CardboardBox {
+  translation -0.615 0.276699 0.5499705699999998
+  rotation -2.6906090711024996e-17 5.206246127474704e-17 1 0.523599
+  size 0.1 0.1 0.1
+  mass 0.3
+}
+CardboardBox {
+  hidden linearVelocity_0 1.0765092548915895e-17 3.582983138545355e-18 6.690842876515474e-15
+  hidden angularVelocity_0 6.769652589177528e-17 -6.769652589178245e-17 5.670002023913012e-17
+  translation -0.652263 0.0421287 0.5499705699999997
+  rotation -2.9948633166981203e-17 -1.8994620533539065e-18 1 1.8326
+  name "cardboard box2"
+  size 0.08 0.08 0.1
+  mass 0.3
+}
+BiscuitBox {
+  hidden linearVelocity_0 -1.3058679868526045e-18 4.078546352907639e-18 4.588443321382839e-15
+  hidden angularVelocity_0 -2.1769078914217155e-16 -3.330632809243297e-16 -1.8578732209841334e-17
+  translation -0.4399999203923063 -0.15 0.5299607599999998
+  rotation 1.1791299008416807e-17 1 5.224539880136227e-18 3.141592653589793
+  size 0.04 0.12 0.03
+}
+BiscuitBox {
+  hidden linearVelocity_0 2.484617354762727e-16 6.510601160352386e-18 -6.6169295047875015e-15
+  hidden angularVelocity_0 -3.1225022453042034e-16 1.2323475573153473e-14 2.901388254342452e-17
+  translation -0.7 -0.150002 0.5199607600000002
+  rotation 5.5078488606496856e-11 1 -5.507850952716162e-11 1.5707963267948961
+  name "biscuit box(1)"
+  size 0.04 0.12 0.03
+}

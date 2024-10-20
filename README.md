@@ -58,8 +58,3 @@ This project simulates a **UR5e robot** in the **Webots** environment. The robot
   - `webots_ros`
 - **Roboflow** account for dataset management.
 
-## 8. Setup Instructions
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/yourusername/ur5e-object-sorting.git
-   cd ur5e-object-sorting
